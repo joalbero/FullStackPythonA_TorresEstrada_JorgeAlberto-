@@ -1,0 +1,46 @@
+<!-- {% extends "gestionamiento_app/base.html" %} -->
+
+<!-- {% load static %} -->
+
+<!-- {% block content %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes</title>
+
+<div class="contenedorformulario">
+  <h2 class="text-white">Reportes Existentes</h2>
+  <table class="text-white" border="2">
+    <tr>
+      <th class="text-white">ID</th>
+      <th class="text-white">Reporte</th>
+      <th class="text-white">Estado</th>
+      <th class="text-white">Municipio</th>
+      <th class="text-white">Direccion</th>
+      <th class="text-white">Status</th>
+      <th class="text-white">Foto</th>
+    </tr>
+    {% for reporte in reportes %}
+      <tr>
+        <td style="color:white;">{{ reporte.id }}</td>
+        <td style="color:white;">{{ reporte.descripcion_problema }}</td>
+        <td style="color:white;">{{ reporte.estado }}</td>
+        <td style="color:white;">{{ reporte.municipio }}</td>
+        <td style="color:white;">{{ reporte.direccion }}</td>
+        <td style="color:white;">{{ reporte.status }}</td>
+        <td style="color:white;">{{ reporte.foto_problema }}</td>
+        <p><img src= "{{reporte.imagen.url}}"></p>
+        <td>
+          {% if reporte %}
+            <a href="{% url 'actualizar_status_reporte' reporte.id %}">Actualizar Status</a>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+</html>
+<!-- {% endblock %} -->

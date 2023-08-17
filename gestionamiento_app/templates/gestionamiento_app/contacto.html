@@ -1,0 +1,36 @@
+{% extends "gestionamiento_app/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+<body>
+    <div class="contenedorformulario">
+    <h1 style="color: white;">Contacto</h1>
+    <form class="formulario" method="post" style=" text-align: center;">
+        {% csrf_token %}
+        <label style="color: white;" for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre">
+        
+        <label style="color: white;" for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        
+        <label style="color: white;" for="mensaje">Mensaje:</label>
+        <textarea name="mensaje" id="mensaje"></textarea>
+        
+        <button type="submit" class="boton">Enviar</button>
+    </form>
+</div>
+    
+</body>
+</html>
+{% endblock %}

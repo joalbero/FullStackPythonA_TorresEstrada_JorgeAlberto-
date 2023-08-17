@@ -1,0 +1,35 @@
+{% extends "gestionamiento_app/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="contenedorformulario">
+  <h2 class="text-white">Reportes Existentes</h2>
+  <table class="text-white" border="2">
+    <tr>
+      <th class="text-white">ID</th>
+      <th class="text-white">Reporte</th>
+      <th class="text-white">Estado</th>
+      <th class="text-white">Municipio</th>
+      <th class="text-white">Direccion</th>
+      <th class="text-white">Status</th>
+      <th class="text-white">Foto</th>
+    </tr>
+    {% for reporte in reportes %}
+      <tr>
+        <td style="color:white;">{{ reporte.id }}</td>
+        <td style="color:white;">{{ reporte.descripcion_problema }}</td>
+        <td style="color:white;">{{ reporte.estado }}</td>
+        <td style="color:white;">{{ reporte.municipio }}</td>
+        <td style="color:white;">{{ reporte.direccion }}</td>
+        <td style="color:white;">{{ reporte.status }}</td>
+        <td><img src="{{ reporte.foto_problema.url }}" class="imagen-reporte" style="width: 200px; height: auto;">
+        </td>
+        <td>
+          <a href="{% url 'actualizar_status_reporte' reporte.id %}">Actualizar Status</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "gestionamiento_app/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="contenedorformulario">
+    <h2 style="color: white;">Actualizar Status del Reporte</h2>
+    <p style="color: white;">Status: {{ reporte.staus }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <select name="status" class="form-control">
+            <option value="Pendiente por investigar">Pendiente por investigar</option>
+            <option value="Investigando">Investigando</option>
+            <option value="Trabajando en ello">Trabajando en ello</option>
+            <option value="Solucionado">Solucionado</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+    <a href="{{ url }}">Volver</a>
+</div>
+
+{% endblock %}

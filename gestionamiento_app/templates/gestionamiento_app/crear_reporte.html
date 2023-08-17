@@ -1,0 +1,36 @@
+{% extends "gestionamiento_app/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Reporte</title>
+</head>
+<body>
+    <h2 style="color:white;"></h2>
+    <div class="contenedorformulario">
+  <form method="POST" enctype="multipart/form-data" style="color: white;">
+    {% csrf_token %}
+    {% for field in form %}
+    {% if field.name != 'status' %}
+    <div class="form-group">
+      {{ field.label_tag }} {{ field }}
+  </div>
+  {% endif %}
+  {% endfor %}
+  <button type="submit">Crear Reporte</button>
+  </div>
+  </form>
+
+
+</body>
+</html>
+
+{% endblock %}
